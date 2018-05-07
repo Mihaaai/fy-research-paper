@@ -57,15 +57,6 @@
 <li>Ușurința de mentenanță și configurare</li>
 <li>Disponibilitatea în Azure Cloud</li>
 </ul>
-<h2>Surse</h2>
-<ul>
-<li>
-<p><a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
-</li>
-</ul>
 <h2>Microsoft Azure for Research</h2>
 <h3>De ce Azure cloud ?</h3>
 
@@ -118,14 +109,23 @@
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark">https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark</a></li>
 </ul>
-<h2>Citations </h2>
+<h2>Citări</h2>
 <ul>
 <li> “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</li>
 <li>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></li>
 </ul>
+<h2>Surse</h2>
+<ul>
+<li>
+<p><a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
+</li>
+<li>
+<p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
+</li>
+</ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4ODcwOTgyNywxOTU3ODE0MDAyLC0xMD
+eyJoaXN0b3J5IjpbLTE1MjcwMDg0NSwxOTU3ODE0MDAyLC0xMD
 A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
 MDc4XX0=
 -->
