@@ -123,9 +123,10 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark">https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark</a></li>
 </ul>
 <h2>Citations </h2>
-<dt>Citation needed : “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</dt>
-<dd>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></dd>
-</dl>
+<ul>
+<li> “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</li>
+<li>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></li>
+</ul>
 <p>Services Example :</p>
 <ul>
 <li>Data Science VM : <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm">https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm</a></li>
@@ -161,7 +162,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4NjczODgwOCwxOTU3ODE0MDAyLC0xMD
-A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
-MDc4XX0=
+eyJoaXN0b3J5IjpbLTEwMTcxNDc3NjYsMTk1NzgxNDAwMiwtMT
+AwOTYwOTExNSwtMTgzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3
+NDA3OF19
 -->
