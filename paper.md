@@ -55,7 +55,7 @@
 <p>Avantajele fața de Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
 </li>
 </ul>
-<p>Future of Spark :</p>
+<h4>De ce Databricks ? :</h4>
 <ul>
 <li>Spark future with Databrick Inc. <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
 </ul>
@@ -203,6 +203,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzQxNTA1NTYsOTc1NTQxNDczLDExND
-MyNzQwNzhdfQ==
+eyJoaXN0b3J5IjpbLTE1MDg1MjI5NywtMTgzNDE1MDU1Niw5Nz
+U1NDE0NzMsMTE0MzI3NDA3OF19
 -->
