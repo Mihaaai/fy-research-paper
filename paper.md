@@ -2,8 +2,8 @@
 <p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
 
 <p>Azure 4 Research : inchiriem resurse Cloud pentru un scop de cercetare <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> 
-<h1>Tehnologi
-<h1>Spark</h1>
+<h1>Tehnologii folosite</h1>
+<h2>Spark</h2>
 <p>What is it ? : <a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
 <p>Framework de procesare Big Data, open-source</p>
 <p>Ruleaza peste infrastructura de date HDFS a Hadoop. Poate fi instalat atât într-un cluster YARN, cât și în versiune standalone ( să ruleze singur ?)</p>
@@ -215,5 +215,5 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk0MDUzNzUyLDExNDMyNzQwNzhdfQ==
+eyJoaXN0b3J5IjpbNzg3MjI1NjkyLDExNDMyNzQwNzhdfQ==
 -->
