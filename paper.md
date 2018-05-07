@@ -1,7 +1,3 @@
-
-<p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
-
-<p>Azure 4 Research : inchiriem resurse Cloud pentru un scop de cercetare <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> 
 <h1>Tehnologii folosite</h1>
 <h2>Spark</h2>
 <p>What is it ? : <a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
@@ -128,38 +124,8 @@
 <li>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></li>
 </ul>
 
-<p>Processing Json Data with Spark SQL :</p>
-<ul>
-<li><a href="http://blog.antlypls.com/blog/2016/01/30/processing-json-data-with-sparksql/">http://blog.antlypls.com/blog/2016/01/30/processing-json-data-with-sparksql/</a></li>
-</ul>
-<p>Gettings started with Azure HDinsight :</p>
-<ul>
-<li>
-<p>Introduction to Spark on HdInsight : <a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview">https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview</a></p>
-</li>
-<li>
-<p>Deploy HDInsight</p>
-</li>
-</ul>
-<p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql">https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql</a></p>
-<ul>
-<li>HDInsight with Blob Storage</li>
-</ul>
-<p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage">https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage</a></p>
-<ul>
-<li>
-<p>HDInsight with Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal">https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal</a></p>
-</li>
-<li>
-<p>Run Interactive Queries : <a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-load-data-run-query">https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-load-data-run-query</a></p>
-</li>
-<li>
-<p>Delete HdInsight cluster <a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-delete-cluster">https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-delete-cluster</a></p>
-</li>
-</ul>
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY3NTI0MTUxLDE5NTc4MTQwMDIsLTEwMD
-k2MDkxMTUsLTE4MzQxNTA1NTYsOTc1NTQxNDczLDExNDMyNzQw
-NzhdfQ==
+eyJoaXN0b3J5IjpbMTk0MjQ3Mjk1MSwxOTU3ODE0MDAyLC0xMD
+A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
+MDc4XX0=
 -->
