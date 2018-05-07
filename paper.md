@@ -57,7 +57,9 @@
 </ul>
 <h4>De ce Databricks ? :</h4>
 <ul>
-<li>Spark future with Databrick Inc. <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
+<li>Performanțe <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
+<li>Ușurința de mentenanță și configurare</li>
+<li>Disponibilitatea în Azure Cloud</li>
 </ul>
 <p>Sources :</p>
 <ul>
@@ -203,6 +205,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDg1MjI5NywtMTgzNDE1MDU1Niw5Nz
+eyJoaXN0b3J5IjpbMjA4NzAxNzczMSwtMTgzNDE1MDU1Niw5Nz
 U1NDE0NzMsMTE0MzI3NDA3OF19
 -->
