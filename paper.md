@@ -114,10 +114,6 @@
 <p>Datele personale sau securizate ar trebui prelucrate înainte să ajungă în Data Lake.</p>
 </li>
 </ul>
-<p>Azure oferă servicii de IaaS, PaaS și FaaS.</p>
-<p>IaaS (Infrastructure as a Service) oferă cele mai multe opțiuni de configurare. Serviciul acesta constă în valabilitatea unor mașini virtuale, pe care utilizatorii sunt liberi să și le configureze și să-și instaleze aplicațiile pe acestea.</p>
-<p>PaaS (Platform) oferă un mediu de hosting manage-uit, în care utilizatorii doar specifică resursele de care au nevoie.</p>
-<p>FaaS (Function)ia și mai multă responsabilitate de pe umerii utlizatorilor. Aceștia doar își trimit codul, iar serviciul alocă automat resursele de care codul are nevoie pentru a rula eficient.</p>
 <p>Choosing compute options :</p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison">https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison</a></li>
@@ -180,6 +176,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDk2MDkxMTUsLTE4MzQxNTA1NTYsOT
-c1NTQxNDczLDExNDMyNzQwNzhdfQ==
+eyJoaXN0b3J5IjpbMTk1NzgxNDAwMiwtMTAwOTYwOTExNSwtMT
+gzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3NDA3OF19
 -->
