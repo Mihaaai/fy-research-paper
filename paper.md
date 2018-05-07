@@ -118,22 +118,10 @@
 <ul>
 <li><a href="https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/">https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/</a></li>
 </ul>
-<p>Machine learning with spark in the cloud :</p>
+<h4>ML Spark</h4>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark">https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark</a></li>
 </ul>
-<p>Next :</p>
-<ul>
-<li>
-<p>What technology compute to choose ?</p>
-</li>
-<li>
-<p>What are the requirements for an Azure proposal ? (how much space, number of cores, hours of computation )</p>
-</li>
-</ul>
-<p>Need 150 GB - 300 GB - 500 GB.</p>
-<p>Hours of computation : 231 *</p>
-<dl>
 <dt>Citation needed : “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</dt>
 <dd>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></dd>
 </dl>
@@ -172,7 +160,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyMTQ1MDc3NywxOTU3ODE0MDAyLC0xMD
-A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
-MDc4XX0=
+eyJoaXN0b3J5IjpbLTE1NTc1MTM5NTksMTk1NzgxNDAwMiwtMT
+AwOTYwOTExNSwtMTgzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3
+NDA3OF19
 -->
