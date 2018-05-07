@@ -127,10 +127,7 @@
 <li> “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</li>
 <li>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></li>
 </ul>
-<p>Services Example :</p>
-<ul>
-<li>Data Science VM : <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm">https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm</a></li>
-</ul>
+
 <p>Processing Json Data with Spark SQL :</p>
 <ul>
 <li><a href="http://blog.antlypls.com/blog/2016/01/30/processing-json-data-with-sparksql/">http://blog.antlypls.com/blog/2016/01/30/processing-json-data-with-sparksql/</a></li>
@@ -162,7 +159,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTcxNDc3NjYsMTk1NzgxNDAwMiwtMT
-AwOTYwOTExNSwtMTgzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3
-NDA3OF19
+eyJoaXN0b3J5IjpbNDY3NTI0MTUxLDE5NTc4MTQwMDIsLTEwMD
+k2MDkxMTUsLTE4MzQxNTA1NTYsOTc1NTQxNDczLDExNDMyNzQw
+NzhdfQ==
 -->
