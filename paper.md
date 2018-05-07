@@ -1,83 +1,7 @@
----
 
-
----
-
-<p>Research</p>
-<ul>
-<li>
-<p>Graph Convolutional Networks : <a href="https://tkipf.github.io/graph-convolutional-networks/">https://tkipf.github.io/graph-convolutional-networks/</a></p>
-</li>
-<li>
-<p>TensorFlow ( ML Library ) - distribution based on graphs, each graph node is a computation on a certain machine</p>
-</li>
-<li>
 <p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
-</li>
-<li>
-<p>Microsoft Academic Graph API : api to get the academic data from Microsoft</p>
-</li>
-</ul>
-<p>(10, 000 transactions free per month, only available in West US) ( ~ 300 GB )</p>
-<p><a href="https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/">https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/</a></p>
-<ul>
-<li>Harvard Data Science Course : <a href="https://www.youtube.com/playlist?list=PLb4G5axmLqiuneCqlJD2bYFkBwHuOzKus">https://www.youtube.com/playlist?list=PLb4G5axmLqiuneCqlJD2bYFkBwHuOzKus</a></li>
-</ul>
-<p>Academic Search Engines :</p>
-<ul>
-<li>
-<p>Google Scholar : search scholarly articles; indexing is based on value and citation</p>
-</li>
-<li>
-<p>Microsoft Academic : <a href="https://academic.microsoft.com">https://academic.microsoft.com</a></p>
-</li>
-</ul>
-<p>Large Datasets :</p>
-<ul>
-<li>
-<p><a href="https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public">https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public</a></p>
-</li>
-<li>
-<p><a href="https://github.com/caesar0301/awesome-public-datasets">https://github.com/caesar0301/awesome-public-datasets</a></p>
-</li>
-</ul>
-<p>Answers :</p>
-<ul>
-<li>
-<p>Azure4Research : primim resursele pentru un an</p>
-</li>
-<li>
-<p>Propunere de max. 1000 de cuvinte / 3 pagini</p>
-</li>
-<li>
-<p>Cererile tehnice (cate core-uri, spațiu, etc.)</p>
-</li>
-<li>
-<p>Contact : <a href="mailto:azurerfp@microsoft.com">azurerfp@microsoft.com</a>.</p>
-</li>
-<li>
-<p>Primim și datele / acces la api prin acest grant ?</p>
-</li>
-<li>
-<p>Azure Free Trial :</p>
-</li>
-<li>
-<p>170 dollars to spend on their services for a month</p>
-</li>
-<li>
-<p>One year access to some services ( MAG api possibly included ? )</p>
-</li>
-<li>
-<p>Apache Spark on windows ; Dependencies : Scala, Hadoop winutils ; installation link here</p>
-</li>
-</ul>
-<p><a href="https://hernandezpaul.wordpress.com/2016/01/24/apache-spark-installation-on-windows-10/">https://hernandezpaul.wordpress.com/2016/01/24/apache-spark-installation-on-windows-10/</a></p>
-<ul>
-<li>
-<p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
-</li>
-<li>
-<p>Azure 4 Research : rent Azure cloud computing for research <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> (#academicgraph in the submission title, Data Science at the beginning of the title), 2015</p>
+
+<p>Azure 4 Research : inchiriem resurse Cloud pentru un scop de cercetare <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> (#academicgraph in the submission title, Data Science at the beginning of the title), 2015</p>
 </li>
 </ul>
 <ol>
@@ -307,5 +231,5 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MzI3NDA3OF19
+eyJoaXN0b3J5IjpbMTM1NzM1OTM2OSwxMTQzMjc0MDc4XX0=
 -->
