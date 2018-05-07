@@ -102,9 +102,3 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></li>
 </ul>
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NTc1ODM3NiwxOTA0NjczOTI2LDE5NT
-c4MTQwMDIsLTEwMDk2MDkxMTUsLTE4MzQxNTA1NTYsOTc1NTQx
-NDczLDExNDMyNzQwNzhdfQ==
--->
