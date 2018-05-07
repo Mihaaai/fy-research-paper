@@ -1,4 +1,5 @@
 <h1>Tehnologii folosite</h1>
+
 <h2>Spark</h2>
 <h3>Ce e Spark ?</h3>
 <p>Framework de procesare Big Data, open-source</p>
