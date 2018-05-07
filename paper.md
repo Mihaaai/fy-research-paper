@@ -49,10 +49,10 @@
 <h2>De ce Spark ?</h2>
 <ul>
 <li>
-<p>Apache Spark new World Record <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
+<p>Performanțe <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
 </li>
 <li>
-<p>Spark RDD advantages over Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
+<p>Avantajele fața de Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
 </li>
 </ul>
 <p>Future of Spark :</p>
@@ -203,6 +203,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyODI1MDYxOCw5NzU1NDE0NzMsMTE0Mz
-I3NDA3OF19
+eyJoaXN0b3J5IjpbLTE4MzQxNTA1NTYsOTc1NTQxNDczLDExND
+MyNzQwNzhdfQ==
 -->
