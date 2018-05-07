@@ -71,7 +71,7 @@
 <p><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></p>
 <h4>Arhitectura cloud :</h4>
 <ul>
-<li>Big Data <a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
+<li>Big Data </li>
 </ul>
 <p><img src="https://lh4.googleusercontent.com/qYo0YsfG86FmwGHxldncI_kw_ZHZmpounFYzpKWwonIJVsfmannZUyXxtuIBeJF78M032UH7PEggnUNt7Ub28y_yo1DHpxuksf_Uc8BKq98PwW9tuT5yIVF67VzgxJiSjDOVgdvx" alt="fmm.PNG"></p>
 <p>Orice aplicație de tip Big Data începe prin a avea o componentă de sursă de date. Sursele pot fi multiple și diverse, dar în cazul nostru datele sunt omogene și structurate.</p>
@@ -99,10 +99,11 @@
 <li>
 <p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
 </li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NjYxNDUyMSwxOTU3ODE0MDAyLC0xMD
-A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
-MDc4XX0=
+eyJoaXN0b3J5IjpbNDQ1NzQ1NTM2LDE5NTc4MTQwMDIsLTEwMD
+k2MDkxMTUsLTE4MzQxNTA1NTYsOTc1NTQxNDczLDExNDMyNzQw
+NzhdfQ==
 -->
