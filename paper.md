@@ -72,10 +72,11 @@
 </ul>
 <h2>Microsoft Azure for Research</h2>
 <h3>De ce Azure cloud ?</h3>
-<li>Bursa de cercetare : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx</a></li>
 
 <ul>
+
 <li> Metoda de facurare "Pay-as-you-go"</li>
+<li>Bursa de cercetare : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx</a></li>
 </ul>
 <p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
 <p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
@@ -181,6 +182,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NjY1MzIyMSwtMTgzNDE1MDU1Niw5Nz
+eyJoaXN0b3J5IjpbMTY5NDcwMzc0MywtMTgzNDE1MDU1Niw5Nz
 U1NDE0NzMsMTE0MzI3NDA3OF19
 -->
