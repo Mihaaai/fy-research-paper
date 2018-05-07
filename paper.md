@@ -63,7 +63,7 @@
 <ul>
 
 <li> Metoda de facurare "Pay-as-you-go"</li>
-<li>Bursa de cercetare : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx</a></li>
+<li>Bursa de cercetare : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/</a></li>
 </ul>
 <p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
 <p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
@@ -101,7 +101,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTE0MTYyMDMsMTk1NzgxNDAwMiwtMT
-AwOTYwOTExNSwtMTgzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3
-NDA3OF19
+eyJoaXN0b3J5IjpbMjA5ODczMjgyOSwxOTU3ODE0MDAyLC0xMD
+A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
+MDc4XX0=
 -->
