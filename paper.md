@@ -114,11 +114,7 @@
 <p>Datele personale sau securizate ar trebui prelucrate înainte să ajungă în Data Lake.</p>
 </li>
 </ul>
-<p>Choosing compute options :</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison">https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison</a></li>
-</ul>
-<p>Microsoft Academic Graph :</p>
+<h4>Microsoft Academic Graph :</h4>
 <ul>
 <li><a href="https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/">https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/</a></li>
 </ul>
@@ -176,6 +172,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NzgxNDAwMiwtMTAwOTYwOTExNSwtMT
-gzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3NDA3OF19
+eyJoaXN0b3J5IjpbLTgyMTQ1MDc3NywxOTU3ODE0MDAyLC0xMD
+A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
+MDc4XX0=
 -->
