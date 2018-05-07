@@ -46,7 +46,7 @@
 <p>Variabile Acumulatori : În acumulatori se pot adăuga valori de către fiecare nod (mașină) în paralel. Valoarea unui acumulator nu poate fi citită decât de nodul care a inițiat procesarea paralelizată. Pot fi folosiți, de exemplu, în aplicații de numărare sau însumare.</p>
 </li>
 </ul>
-<h2>Why Spark ?</h2>
+<h2>De ce Spark ?</h2>
 <ul>
 <li>
 <p>Apache Spark new World Record <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
@@ -203,5 +203,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc1NTQxNDczLDExNDMyNzQwNzhdfQ==
+eyJoaXN0b3J5IjpbMTAyODI1MDYxOCw5NzU1NDE0NzMsMTE0Mz
+I3NDA3OF19
 -->
