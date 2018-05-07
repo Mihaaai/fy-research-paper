@@ -68,7 +68,6 @@
 </ul>
 <p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
 <p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
-<p><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></p>
 <h4>Arhitectura cloud :</h4>
 <ul>
 <li>Big Data </li>
@@ -100,10 +99,11 @@
 <p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
 </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></li>
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQ1NzQ1NTM2LDE5NTc4MTQwMDIsLTEwMD
-k2MDkxMTUsLTE4MzQxNTA1NTYsOTc1NTQxNDczLDExNDMyNzQw
-NzhdfQ==
+eyJoaXN0b3J5IjpbMTkwNDY3MzkyNiwxOTU3ODE0MDAyLC0xMD
+A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
+MDc4XX0=
 -->
