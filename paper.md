@@ -1,25 +1,9 @@
 
 <p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
 
-<p>Azure 4 Research : inchiriem resurse Cloud pentru un scop de cercetare <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> (#academicgraph in the submission title, Data Science at the beginning of the title), 2015</p>
-</li>
-</ul>
-<ol>
-<li>
-<p>Familiarizarea cu schemele json pentru bazele de date existente. Asta va folosi indiferent de modul ales de continuare.</p>
-</li>
-<li>
-<p>schițarea unui proiect care ar putea folosi baza de date și estimarea (măcar grosieră) a resurselor hardware necesare.</p>
-</li>
-<li>
-<p>Investigarea posibilității folosirii MAG pe platforma azure. Avantaje/dezavantaje. Familiarizarea cu api-ul lor, dar mai ales elaborarea unui draft al proiectului de la 2 pe care să îl trimitem la Microsoft.</p>
-</li>
-<li>
-<p>Investigarea posibilității folosirii bazei de date open. Avantaje/dezavantaje. Căutarea unui limbaj/unei platforme de procesare potrivită.</p>
-</li>
-</ol>
-<p>Analiza Big Data</p>
-<p>Spark</p>
+<p>Azure 4 Research : inchiriem resurse Cloud pentru un scop de cercetare <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> 
+<h1>Tehnologi
+<h1>Spark</h1>
 <p>What is it ? : <a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
 <p>Framework de procesare Big Data, open-source</p>
 <p>Ruleaza peste infrastructura de date HDFS a Hadoop. Poate fi instalat atât într-un cluster YARN, cât și în versiune standalone ( să ruleze singur ?)</p>
@@ -231,5 +215,5 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NzM1OTM2OSwxMTQzMjc0MDc4XX0=
+eyJoaXN0b3J5IjpbMzk0MDUzNzUyLDExNDMyNzQwNzhdfQ==
 -->
