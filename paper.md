@@ -34,7 +34,7 @@
 
 <p>reduce, collect, count, first, take, countByKey, foreach.</p>
 
-<p>Variabile partajate :</p>
+<h4>Variabile partajate :</h4>
 <p>By default, when Spark runs a function in parallel as a set of tasks on different nodes, it ships a copy of each variable used in the function to each task.</p>
 <p>O funcție rulată în paralel este văzuta ca o mulțime de task-uri pe mai multe noduri. În mod implicit, Spark transmite câte o copie a fiecărei variabile din funcție către fiecare task. Uneori, o variabila trebuie partajată între task-uri sau între un task și programul conducător. Astfel apar variabilele partajate (shared variables).</p>
 <p>Exista 2 feluri de variabile partajate. Acestea se pot folosi pentru a partaja informații între nodurile aplicației.</p>
@@ -46,11 +46,8 @@
 <p>Variabile Acumulatori : În acumulatori se pot adăuga valori de către fiecare nod (mașină) în paralel. Valoarea unui acumulator nu poate fi citită decât de nodul care a inițiat procesarea paralelizată. Pot fi folosiți, de exemplu, în aplicații de numărare sau însumare.</p>
 </li>
 </ul>
-<p>Calculating resources requirements :</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/37871194/how-to-tune-spark-executor-number-cores-and-executor-memory">https://stackoverflow.com/questions/37871194/how-to-tune-spark-executor-number-cores-and-executor-memory</a></li>
 </ul>
-<p>Why Spark ?</p>
+<h2>Why Spark ?</h2>
 <ul>
 <li>
 <p>Apache Spark new World Record <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
@@ -207,5 +204,5 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM3NzYyNjY3LDExNDMyNzQwNzhdfQ==
+eyJoaXN0b3J5IjpbLTY5NzIzNzE1MywxMTQzMjc0MDc4XX0=
 -->
