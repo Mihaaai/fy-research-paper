@@ -17,6 +17,7 @@
 <p>RDD-urile sunt o primă abstractizare a Spark (Resilient Distributed Datasets). Un RDD este o colecție de elemente distribuite între nodurile sistemului, pe care se pot executa operații în paralel.</p>
 <p>RDD-urile sunt create prin o transformare aplicată unui fișier din sistem sau unei colecții Scala din programul conducător.</p>
 <p>RDD-urile sunt imutabile : o transformare asupra unui RDD întoarce un RDD nou, nu îl modifică pe cel anterior</p>
+<h3>Operatii in Spark </h3>
 <p>RDD-urile suportă 2 tipuri de operații :</p>
 <h4>Transformări :</h4>
 
@@ -29,7 +30,7 @@
 <p>Sunt calculate toate interogările de date din RDD și este întoarsă o valoare</p>
 
 <p>reduce, collect, count, first, take, countByKey, foreach.</p>
-
+<h3>Stocarea datelor in Spark </h3>
 <h4>Variabile partajate :</h4>
 <p>By default, when Spark runs a function in parallel as a set of tasks on different nodes, it ships a copy of each variable used in the function to each task.</p>
 <p>O funcție rulată în paralel este văzuta ca o mulțime de task-uri pe mai multe noduri. În mod implicit, Spark transmite câte o copie a fiecărei variabile din funcție către fiecare task. Uneori, o variabila trebuie partajată între task-uri sau între un task și programul conducător. Astfel apar variabilele partajate (shared variables).</p>
@@ -62,7 +63,7 @@
 
 <ul>
 
-<li> Metoda de facurare "Pay-as-you-go"</li>
+<li> Metoda de facturare "Pay-as-you-go"</li>
 <li>Bursa de cercetare : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/</a></li>
 </ul>
 <p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
@@ -101,7 +102,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjI4MjY0ODUsMTk1NzgxNDAwMiwtMT
-AwOTYwOTExNSwtMTgzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3
-NDA3OF19
+eyJoaXN0b3J5IjpbLTY5NjYxNDUyMSwxOTU3ODE0MDAyLC0xMD
+A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
+MDc4XX0=
 -->
