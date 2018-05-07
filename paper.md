@@ -89,10 +89,8 @@
 <p>Orice aplicație de tip Big Data începe prin a avea o componentă de sursă de date. Sursele pot fi multiple și diverse, dar în cazul nostru datele sunt omogene și structurate.</p>
 <p>După preluarea datelor din sursele necesare, acestea sunt  de obicei stocate într-un sistem distribuit, care poate susține cantități mari de date, în diverse formate. Pentru această componentă am putea folosi Azure Data Lake sau containere blob din Azure Storage.</p>
 <p>Procesarea datelor presupune, în majoritatea cazurilor, citirea diverselor date și stocarea lor în alte fișiere, pregătindu-le astfel pentru analiza. Procesarea și analizarea datelor va fi facuta folosind Spark din pachetul Azure Databricks.</p>
-<p>După procesare, datele sunt acum structurate și permit preluarea acestora pentru analiza. Diverse programe de analiză sunt Azure SQL Data Warehouse și SQL Spark din HDInsight.</p>
-<p>Scopul final al aplicațiilor de Big Data este de obicei obținerea de corelații sau fapte din mulțimea mare de date procesată. Pentru analiza datelor, se poate folosi un serviciu precum Azure Analysis Services, un notebook de analiză Jupyter. Pentru analiza datelor la scară largă, se poate folosi Microsoft R Server sau Spark standalone.</p>
 <p>Ultima dar nu cea din urmă, orchestrarea aplicației este printre cele mai importante componente. Ea creează fluxurile între componentele aplicației și permite parcursul datelor de la surse către rapoartele analitice. Aceste procese pot fi făcute automat cu ajutorul Apache Data Factory sau Apache Oozie sau Sqoop.</p>
-<p>Principii de programare :</p>
+<h4>Principii de programare :</h4>
 <ul>
 <li>
 <p>Paralelizarea procesării datelor și posibilitatea de a separa datele într-un sistem distribuit precum HDFS</p>
@@ -110,7 +108,7 @@
 <p>Uneori, se preferă timpuri mai lungi de procesare față de costul mai mare al sub-utilizării unui cluster. De exemplu, un proces poate dura 8 ore rulând pe patru noduri, dar le folosește pe primele două doar 2 ore. Astfel, dacă ar rula doar pe 2 noduri, ar rula mai încet, dar nu dublu ca timp. Deci în cazul de față, costul nu merită timpul de execuție.</p>
 </li>
 <li>
-<p>Separarea resurselor de cluset. De exemplu, este posibil ca o aplicație ce folosește și Spark și Hive să meargă mai repede dacă cele 2 sunt folosite în clustere separate.</p>
+<p>Separarea resurselor de cluster. De exemplu, este posibil ca o aplicație ce folosește și Spark și Hive să meargă mai repede dacă cele 2 sunt folosite în clustere separate.</p>
 </li>
 <li>
 <p>Datele personale sau securizate ar trebui prelucrate înainte să ajungă în Data Lake.</p>
@@ -182,6 +180,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1MTQxNjE4OCwtMTgzNDE1MDU1Niw5Nz
-U1NDE0NzMsMTE0MzI3NDA3OF19
+eyJoaXN0b3J5IjpbLTEwMDk2MDkxMTUsLTE4MzQxNTA1NTYsOT
+c1NTQxNDczLDExNDMyNzQwNzhdfQ==
 -->
