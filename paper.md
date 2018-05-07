@@ -1,6 +1,6 @@
 <h1>Tehnologii folosite</h1>
 <h2>Spark</h2>
-<p>What is it ? : <a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
+<h3>Ce e Spark ?</h3>
 <p>Framework de procesare Big Data, open-source</p>
 <p>Ruleaza peste infrastructura de date HDFS a Hadoop. Poate fi instalat atât într-un cluster YARN, cât și în versiune standalone ( să ruleze singur ?)</p>
 <p>Suportă operații pe o varietate de tipuri de date(text, grafuri) și surse de date (batch, stream)</p>
@@ -101,7 +101,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5ODczMjgyOSwxOTU3ODE0MDAyLC0xMD
-A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
-MDc4XX0=
+eyJoaXN0b3J5IjpbLTIwNjI4MjY0ODUsMTk1NzgxNDAwMiwtMT
+AwOTYwOTExNSwtMTgzNDE1MDU1Niw5NzU1NDE0NzMsMTE0MzI3
+NDA3OF19
 -->
