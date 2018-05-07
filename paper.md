@@ -42,7 +42,7 @@
 <p>Variabile Acumulatori : În acumulatori se pot adăuga valori de către fiecare nod (mașină) în paralel. Valoarea unui acumulator nu poate fi citită decât de nodul care a inițiat procesarea paralelizată. Pot fi folosiți, de exemplu, în aplicații de numărare sau însumare.</p>
 </li>
 </ul>
-<h2>De ce Spark ?</h2>
+<h3>De ce Spark ?</h3>
 <ul>
 <li>
 <p>Performanțe <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
@@ -51,7 +51,7 @@
 <p>Avantajele fața de Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
 </li>
 </ul>
-<h4>De ce Databricks ? :</h4>
+<h4>De ce Databricks ? </h4>
 <ul>
 <li>Performanțe <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
 <li>Ușurința de mentenanță și configurare</li>
@@ -125,7 +125,7 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0MjQ3Mjk1MSwxOTU3ODE0MDAyLC0xMD
+eyJoaXN0b3J5IjpbLTQ4ODcwOTgyNywxOTU3ODE0MDAyLC0xMD
 A5NjA5MTE1LC0xODM0MTUwNTU2LDk3NTU0MTQ3MywxMTQzMjc0
 MDc4XX0=
 -->
