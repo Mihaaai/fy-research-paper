@@ -61,7 +61,7 @@
 <li>Ușurința de mentenanță și configurare</li>
 <li>Disponibilitatea în Azure Cloud</li>
 </ul>
-<p>Sources :</p>
+<h2>Surse</h2>
 <ul>
 <li>
 <p><a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
@@ -70,34 +70,7 @@
 <p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
 </li>
 </ul>
-<p>Next :</p>
-<ul>
-<li>
-<p>Spark basics :</p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html">https://spark.apache.org/docs/latest/rdd-programming-guide.html</a></p>
-</li>
-<li>
-<p>Cluster setup :</p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/cluster-overview.html">https://spark.apache.org/docs/latest/cluster-overview.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/submitting-applications.html">https://spark.apache.org/docs/latest/submitting-applications.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/spark-standalone.html">https://spark.apache.org/docs/latest/spark-standalone.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/configuration.html">https://spark.apache.org/docs/latest/configuration.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/tuning.html">https://spark.apache.org/docs/latest/tuning.html</a></p>
-</li>
-</ul>
-<p>Microsoft Azure for Research</p>
+<h2>Microsoft Azure for Research</h2>
 <p>Documentation : <a href="https://docs.microsoft.com/en-us/azure/">https://docs.microsoft.com/en-us/azure/</a></p>
 <p>Arhitecture : <a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></p>
 <p>Research Program : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx</a></p>
@@ -205,6 +178,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4NzAxNzczMSwtMTgzNDE1MDU1Niw5Nz
+eyJoaXN0b3J5IjpbMTI5NzYzOTQ1MywtMTgzNDE1MDU1Niw5Nz
 U1NDE0NzMsMTE0MzI3NDA3OF19
 -->
