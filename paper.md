@@ -14,7 +14,7 @@
 <p>Spark folosește de asemenea tehnici de “lazy evaluation” pentru a optimiza evaluărea interogărilor de big data</p>
 <p>Ofera API-uri in Scala, Python, R</p>
 <p>Spark MLib, Spark GraphX</p>
-<p>Arhitectura Spark :</p>
+<h3>Arhitectura Spark :</h3>
 <p>Orice aplicație Spark conține un program driver care rulează funcția main() a utilizatorului și apoi execută operații în paralel pe cluster.</p>
 <p>Spark este format din 3 componente, partea de date, parte de procesare API și partea de management. Prima parte se ocupa cu sistemul de stocare al datelor, a doua cu operațiile și procesările care au loc asupra datelor și a treia cu managementul resurselor peste un cluster / standalone.</p>
 <p><img src="https://lh3.googleusercontent.com/kVaS5mEDHPqH8W95Ku6SDxBI6BfV5m_xY8Yhqt8HhtByof8YMG2qFRGk88tiWcbYGnJLKcqyb74qrL8rkQVNIyxg11kuFvcwPxtOhHr6tvQ6hyjYDOS_MxlX9WfxbONt9-hjBKZR" alt=""></p>
@@ -215,5 +215,5 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg3MjI1NjkyLDExNDMyNzQwNzhdfQ==
+eyJoaXN0b3J5IjpbMTQxMzA3NTE3OCwxMTQzMjc0MDc4XX0=
 -->
