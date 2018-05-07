@@ -46,7 +46,6 @@
 <p>Variabile Acumulatori : În acumulatori se pot adăuga valori de către fiecare nod (mașină) în paralel. Valoarea unui acumulator nu poate fi citită decât de nodul care a inițiat procesarea paralelizată. Pot fi folosiți, de exemplu, în aplicații de numărare sau însumare.</p>
 </li>
 </ul>
-</ul>
 <h2>Why Spark ?</h2>
 <ul>
 <li>
@@ -204,5 +203,5 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NzIzNzE1MywxMTQzMjc0MDc4XX0=
+eyJoaXN0b3J5IjpbOTc1NTQxNDczLDExNDMyNzQwNzhdfQ==
 -->
