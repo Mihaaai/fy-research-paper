@@ -81,7 +81,7 @@
 <p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
 <p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
 <p><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></p>
-<p>Arhitectura cloud :</p>
+<h4>Arhitectura cloud :</h4>
 <ul>
 <li>Big Data <a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
 </ul>
@@ -182,6 +182,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5NDcwMzc0MywtMTgzNDE1MDU1Niw5Nz
+eyJoaXN0b3J5IjpbMTEyNDQxOTEzNSwtMTgzNDE1MDU1Niw5Nz
 U1NDE0NzMsMTE0MzI3NDA3OF19
 -->
