@@ -71,8 +71,10 @@
 </li>
 </ul>
 <h2>Microsoft Azure for Research</h2>
-<h3>De ce Azure ?</h3>
-<u
+<h3>De ce Azure cloud ?</h3>
+<ul>
+<li> Metoda de facurare "Pay</li>
+</ul>
 <p>Research Program : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx</a></p>
 <p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
 <p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
@@ -178,6 +180,6 @@
 </ul>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMDE2OTczOCwtMTgzNDE1MDU1Niw5Nz
-U1NDE0NzMsMTE0MzI3NDA3OF19
+eyJoaXN0b3J5IjpbLTExMjAyNjE1MTYsLTE4MzQxNTA1NTYsOT
+c1NTQxNDczLDExNDMyNzQwNzhdfQ==
 -->
