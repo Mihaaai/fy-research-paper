@@ -53,9 +53,12 @@
 <p>Avantajele fața de Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
 </li>
 </ul>
+# Databricks
+
 <h4>De ce Databricks ? </h4>
 <ul>
-<li>Performanțe <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
+<li>Performanțe 
+<a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
 <li>Ușurința de mentenanță și configurare</li>
 <li>Disponibilitatea în Azure Cloud</li>
 </ul>
@@ -103,5 +106,5 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></li>
 </ul>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcwMzY0MjAyXX0=
+eyJoaXN0b3J5IjpbLTE1NzMyMDkzMyw3NzAzNjQyMDJdfQ==
 -->
