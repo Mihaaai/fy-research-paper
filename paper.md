@@ -1,107 +1,20 @@
-<h1>Tehnologii folosite</h1>
+# Analizarea rețelelor de coautori folosind Spark
 
-<h2>Spark</h2>
-<h3>Ce e Spark ?</h3>
-<p>Framework de procesare Big Data, open-source</p>
-<p>Ruleaza peste infrastructura de date HDFS a Hadoop. Poate fi instalat atât într-un cluster YARN, cât și în versiune standalone ( să ruleze singur ?)</p>
-<p>Suportă operații pe o varietate de tipuri de date(text, grafuri) și surse de date (batch, stream)</p>
-<p>Suportă interogări SQL și operații complexe precum învățare automată și calcule pe grafuri</p>
-<p>Spark folosește Grafuri Orientate Aciclice pentru procesarea datelor. Spre deosebire de Hadoop MapReduce, unde o serie de job-uri MapReduce trebuiau să se aștepte una pe alta, în spark job-urile pot lucra cu aceleași date din memorie.</p>
-<p>Spark calculeaza procesările mai întâi în memoria internă, iar când aceasta e plină, scrie pe disk. Păstrarea rezultatelor în memoria internă ajută în cazul în care se lucrează cu același set de date de mai multe ori.</p>
-<p>Spark folosește de asemenea tehnici de “lazy evaluation” pentru a optimiza evaluărea interogărilor de big data</p>
-<p>Ofera API-uri in Scala, Python, R</p>
-<p>Spark MLib, Spark GraphX</p>
-<h3>Arhitectura Spark :</h3>
-<p>Orice aplicație Spark conține un program driver care rulează funcția main() a utilizatorului și apoi execută operații în paralel pe cluster.</p>
-<p>Spark este format din 3 componente, partea de date, parte de procesare API și partea de management. Prima parte se ocupa cu sistemul de stocare al datelor, a doua cu operațiile și procesările care au loc asupra datelor și a treia cu managementul resurselor peste un cluster / standalone.</p>
-<p><img src="https://lh3.googleusercontent.com/kVaS5mEDHPqH8W95Ku6SDxBI6BfV5m_xY8Yhqt8HhtByof8YMG2qFRGk88tiWcbYGnJLKcqyb74qrL8rkQVNIyxg11kuFvcwPxtOhHr6tvQ6hyjYDOS_MxlX9WfxbONt9-hjBKZR" alt=""></p>
-<p>RDD-urile sunt o primă abstractizare a Spark (Resilient Distributed Datasets). Un RDD este o colecție de elemente distribuite între nodurile sistemului, pe care se pot executa operații în paralel.</p>
-<p>RDD-urile sunt create prin o transformare aplicată unui fișier din sistem sau unei colecții Scala din programul conducător.</p>
-<p>RDD-urile sunt imutabile : o transformare asupra unui RDD întoarce un RDD nou, nu îl modifică pe cel anterior</p>
-<h3>Operatii in Spark </h3>
-<p>RDD-urile suportă 2 tipuri de operații :</p>
-<h4>Transformări :</h4>
+# Surse
+- Tehnologii folosite  
+    - Databricks
+[Cum este optimizat Spark SQL și Dataframes](https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html)
+[Performanțe](https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf)
+[Introducere în Databricks și exemple de notebook-uri](https://docs.azuredatabricks.net/_static/notebooks/azure/gentle-introduction-to-apache-spark-azure.html)
+    - Spark 
+[Performanțe](https://opensource.com/business/15/1/apache-spark-new-world-record)
+[Avantajele Spark față de Hadoop](https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed)
+[Documentația Spark](https://spark.apache.org/docs/latest/index.html)
 
-<p>Nu sunt calculate evaluări, este doar întors un nou RDD</p>
+    - Azure
+[Arhitecturi Big Data](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data)
+[Tehnici de design pentru aplicații Cloud](https://docs.microsoft.com/en-us/azure/architecture/guide/)
 
-<p>map, filter, flatMap, groupByKey, reduceByKey, aggregateByKey, pipe, coalesce</p>
+## Citări
+- **Arnab Sinha, Zhihong Shen, Yang Song, Hao Ma, Darrin Eide, Bo-June (Paul) Hsu, and Kuansan Wang. 2015. An Overview of Microsoft Academic Service (MAS) and Applications. In Proceedings of the 24th International Conference on World Wide Web (WWW ’15 Companion). ACM, New York, NY, USA, 243-246. DOI=http://dx.doi.org/10.1145/2740908.2742839**
 
-<h4>Acțiuni :</h4>
-
-<p>Sunt calculate toate interogările de date din RDD și este întoarsă o valoare</p>
-
-<p>reduce, collect, count, first, take, countByKey, foreach.</p>
-<h3>Stocarea datelor in Spark </h3>
-<h4>Variabile partajate :</h4>
-<p>By default, when Spark runs a function in parallel as a set of tasks on different nodes, it ships a copy of each variable used in the function to each task.</p>
-<p>O funcție rulată în paralel este văzuta ca o mulțime de task-uri pe mai multe noduri. În mod implicit, Spark transmite câte o copie a fiecărei variabile din funcție către fiecare task. Uneori, o variabila trebuie partajată între task-uri sau între un task și programul conducător. Astfel apar variabilele partajate (shared variables).</p>
-<p>Exista 2 feluri de variabile partajate. Acestea se pot folosi pentru a partaja informații între nodurile aplicației.</p>
-<ul>
-<li>
-<p>Variabile Broadcast : se menține variabila în cache-ul fiecărei mașini. Variabila este read-only. Aceasta nu se trimite prin copii odată cu fiecare task. Acest caz de variabilă se poate folosi în situația în care vrem să partajăm un data set mare între mai multe noduri.</p>
-</li>
-<li>
-<p>Variabile Acumulatori : În acumulatori se pot adăuga valori de către fiecare nod (mașină) în paralel. Valoarea unui acumulator nu poate fi citită decât de nodul care a inițiat procesarea paralelizată. Pot fi folosiți, de exemplu, în aplicații de numărare sau însumare.</p>
-</li>
-</ul>
-<h3>De ce Spark ?</h3>
-<ul>
-<li>
-<p>Performanțe <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
-</li>
-<li>
-<p>Avantajele fața de Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
-</li>
-</ul>
-<h4>De ce Databricks ? </h4>
-<ul>
-<li>Performanțe <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
-<li>Ușurința de mentenanță și configurare</li>
-<li>Disponibilitatea în Azure Cloud</li>
-</ul>
-<h2>Microsoft Azure for Research</h2>
-<h3>De ce Azure cloud ?</h3>
-
-<ul>
-
-<li> Metoda de facturare "Pay-as-you-go"</li>
-<li>Bursa de cercetare : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/</a></li>
-</ul>
-<p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
-<p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
-<h4>Arhitectura cloud :</h4>
-<ul>
-<li>Big Data </li>
-</ul>
-<p><img src="https://lh4.googleusercontent.com/qYo0YsfG86FmwGHxldncI_kw_ZHZmpounFYzpKWwonIJVsfmannZUyXxtuIBeJF78M032UH7PEggnUNt7Ub28y_yo1DHpxuksf_Uc8BKq98PwW9tuT5yIVF67VzgxJiSjDOVgdvx" alt="fmm.PNG"></p>
-<p>Orice aplicație de tip Big Data începe prin a avea o componentă de sursă de date. Sursele pot fi multiple și diverse, dar în cazul nostru datele sunt omogene și structurate.</p>
-<p>După preluarea datelor din sursele necesare, acestea sunt  de obicei stocate într-un sistem distribuit, care poate susține cantități mari de date, în diverse formate. Pentru această componentă am putea folosi Azure Data Lake sau containere blob din Azure Storage.</p>
-<p>Procesarea datelor presupune, în majoritatea cazurilor, citirea diverselor date și stocarea lor în alte fișiere, pregătindu-le astfel pentru analiza. Procesarea și analizarea datelor va fi facuta folosind Spark din pachetul Azure Databricks.</p>
-<p>Ultima dar nu cea din urmă, orchestrarea aplicației este printre cele mai importante componente. Ea creează fluxurile între componentele aplicației și permite parcursul datelor de la surse către rapoartele analitice. Aceste procese pot fi făcute automat cu ajutorul Apache Data Factory sau Apache Oozie sau Sqoop.</p>
-<h4>Microsoft Academic Graph :</h4>
-<ul>
-<li><a href="https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/">https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/</a></li>
-</ul>
-<h4>ML Spark</h4>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark">https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark</a></li>
-</ul>
-<h2>Citări</h2>
-<ul>
-<li> “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</li>
-<li>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></li>
-</ul>
-<h2>Surse</h2>
-<ul>
-<li>
-<p><a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
-</li>
-<li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
-<li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></li>
-</ul>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcwMzY0MjAyXX0=
--->
