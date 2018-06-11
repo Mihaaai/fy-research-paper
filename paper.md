@@ -1,311 +1,69 @@
----
+# Analizarea rețelelor de coautori folosind Spark
+
+## Motivația lucrării și studiul situației actuale
+
+Rețelele personale sunt îndelung studiate de către sociologi pentru a descoperi tipare în modul în care oamenii își aleg prieteni sau colaboratori. O rețea de acest fel este ușor modelată sub forma unui graf, unde nodurile reprezintă oamenii și muchiile grafului reprezintă faptul că doi oameni au o relație de colaborare. Muchiile pot fi ponderate de o cuantificare a acestei colaborări. În cadrul unei rețele de copii de grădiniță, de exemplu, muchiile reprezintă relația de prietenie dintre doi copii, și pot fi ponderate de numărul jocurilor la care aleg să participe împreună fără influența profesorilor. 
+Desigur, analiza acestor tipuri de rețele este utilă și în cuantificarea influențelor pe care unii colaboratori le pot exercita într-o rețea. Rețelele personale pot fi întocmite în toate mediile în care există oameni care colaborează unul cu celălalt, indiferent de forma de colaborare. Revenind la exemplul copiilor dintr-o grădiniță, se poate observa dacă copii din straturi sociale diferite (bogați, săraci, clasa medie) au o preferință de prieteni în același strat. [@cite : vezi mail-ul lui Șerbănuță, "Plan de atac", cu Gabi în CC, pentru un autor care după care e denumit un pachet în R]. [@todo : caut pe net încă câteva exemple de studii asupra rețelelor umane].
+
+Lucrarea de față își propune să abordeze rețelele de coautori în cadrul cercetării.
+Rețelele de coautori au fost studiate și în trecut, însă rezultatele oferite de aceste analize sunt contradictorii, mai ales cele privind modul în care autorii își aleg colaboratorii. Unele lucrări argumentează că legăturile de colaborare vin în principal din homofilie, preferința cercetătorilor de a lucra cu persoane cu interese sau personalități similare. [@cite] Alte păreri favorizează cauza efectului Mathew. Acest efect reprezintă tendința cercetătorilor de a-și alege parteneri de lucru din cei care au deja succes și vizibilitate, pentru a se propulsa ei înșiși. [@cite] De asemenea, analizele de până acum nu au o opinie comună în ceea ce privește măsura în care numărul de citări al unui articol este influențat de numărul de coautori al acestuia.
+Toate acestea fac cercetarea rețelelor de coautori un domeniu activ, în care un nou studiu poate avea un impact puternic. Astfel, aplicația noastră își propune să ofere înspre analiză astfel de rețele și să adauge acestor rețele o caracteristică care le lipsește studiilor de până acum. 
+Cele două efecte, cel de homofilie și Mathew, sunt greu de separat în rezultatele actuale pentru că studiile acestea oferă doar o perspectivă statică asupra rețelelor. Ele oferă o viziune asupra a multe și diverse populații de cercetători, însă doar la un moment dat în timp. Proiectul nostru își propune să adauge o dimensiune longitudinală asupra acestor rețele, oferind posibilitatea de a analiza evoluția acestora în timp. Folosind această abordare, ponderea efectelor și a influențelor coautorilor ar putea fi mult mai vizibilă. Spre exemplu, se poate urmări evoluția diverșilor caracteristici ale cercetătorilor unei rețele (e.g. numărul de citări ale articolelor lor sau indicele Hirsch) și se poate verifica corelația dintre creșterile valorilor acestor indicatori și adăugarea sau eliminarea unor coautori. [@cite : verifică sursele din propunerea de cercetare a lui Șerbănuță + Gabi]
+
+Proiectul nostru constă în alcătuirea acestor rețele personale prin modelarea informațiilor preluate dintr-o bază de date și expunerea acestor rețele pentru o viitoare analiză statistică. În plus, dată fiind mărimea considerabilă a bazei de date alese ( aproximativ [@todo numărul de publicații și numărul de autori al MAG]) , ne asigurăm că viitoarele analize statistice vor fi relevante. Pentru a fi capabili să modelăm o cantitate atât de mare de date, am ales să folosim Spark, un framework de procesare distribuită, pe care îl vom descrie în detaliu în secțiunea referitoare la tehnologiile folosite. Deși rezultatele obținute vor fi specifice rețelelor de coautori, arhitectura aplicației poate fi aplicată oricărui tip de rețea personală, cu ușoare modificări pentru a putea acomoda noile surse de date și structura acestor date. 
+
+În continuare vom prezenta structura rețelelor personale obținute, arhitectura aplicației și modul în care am format rețelele.
+
+## Structura unei rețele de coautori
+
+Rețeaua de coautori este modelată, ca majoritatea rețelelor personale, sub forma unui graf. Fiecare nod al grafului reprezintă un cercetător, iar o muchie între două noduri reprezintă faptul că doi cercetători au colaborat la scrierea unor articole. Graful este orientat și simetric, dat fiind că o legătură de la cercetătorul *X* la cercetătorul *Y* vine de la sine și cu legătura inversă : dacă *X* colaborează cu *Y*, atunci este de la sine înțeles că și *Y* colaborează cu *X*. 
+[@image: un graf orientat simetric cu nume de cercetători ca noduri]
+
+În afară de această semantică, fiecare nod și muchie conține date relevante pentru analiză.
+Pentru fiecare nod, reținem identificatorul unic al cercetătorului în baza de date, cât și date agregate despre acesta: numărul de publicații la care a participat, numărul de citări pe care le-au obținut aceste publicații și indicele Hirsch al autorului. Indicele Hirsch este o măsură de cuantificare atât a productivității, cât și a impactului unui autor. Acest indice a fost inventat în 2005 de către Jorge E. Hirsch și este definit astfel: un cercetător are un index Hirsch cu valoarea *h* dacă a publicat *h* lucrări dintre care toate au fost citate de cel puțin *h* ori. Este de menționat că acest indice este relevant doar în comparații referitoare la cercetători din același domeniu de studiu, deoarece convențiile de citare diferă de la un domeniu la altul.[@todo: un exemplu de diferență între felul în care citările funcționează în două domenii de studiu diferite] [@cite : https://en.wikipedia.org/wiki/H-index]
+
+Rețele personale care pot fi extrase cu ajutorul aplicației noastre sunt de două tipuri: rețele statice, care reprezintă statusul unei rețele în momentul actual, și rețelele dinamice, care oferă informații despre evoluția statusului unei rețele în timp. Cele două tipuri diferă prin structura muchiilor care leagă două noduri în graf. Vom explica, pe rând, structura unei muchii pentru fiecare tip de rețea.
+Muchiile rețelelor statice rețin, pe lângă identificatorii unici ai celor doi autori care colaborează, și numărul de publicații pe care cei doi autori le-au scris împreună. 
+[@image: O diagramă UML cu o muchie statică între două noduri, care să arate structura nodurilor și a muchiilor]
+
+Rețelele dinamice sunt mai complexe și modelează evoluția autorilor și a lucrărilor acestora pe parcursul unui interval de ani dat. Spre exemplu, o muchie a acestui tip de rețea va reține o structură care expune, pentru fiecare an din ultimii zece ani, numărul de citări al fiecărui articol la finalul acelui an și numărul de citări însumat al acestor articole în anul respectiv.
+[@image: O diagramă UML cu structura unei muchii dinamice : 
+	dictionar{ an: obiect{ 	- dictionar:{id_articol : nr_citări }
+							- int: nr_citări_însumate}
+			 }]
+
+Datorită faptului că rețelele statice au mai puține date agregate decât cele dinamice, acestea sunt mai ușor de calculat și au o dimensiune mai redusă, ceea ce le face mai ușor de stocat și de expus grafic. Din această cauză, deși poate părea redundant faptul că informațiile din cele statice sunt incluse în informațiile din cele dinamice, ușurința lor de modelare le face excelente în scopul previzualizării. De exemplu, se pot urmări mai întâi factori precum dimensiunea rețelei și numărul mediu de publicații scrise în coutorat, și apoi a se decide dacă rețeaua în cauză merită să fie analizată mai amănunțit, folosind versiunea sa dinamică.
+
+În cele ce urmează vom prezenta sursa noastră de date în modelarea acestor rețele, cât și modul în care le-am obținut și problemele întâlnite pe parcurs.
+
+## Microsoft Academic Graph
+
+Microsoft Academic Graph, prescurtat în continuare **MAG**, este o bază de date care conține informații despre jurnale, conferințe și publicații ștințifice, despre autorii acestora și despre diverse domenii de studiu ale cercetării. După cum spune și numele, informația este modelată sub forma unui graf cu enități ce modelează toate aceste activități de cercetare. Fiind preluate cu ajutorul motorului de căutare Bing, datele sunt updatate săptămânal și sunt folosite de către Microsoft în servicii precum Microsoft Academic, Cortana, Word sau însăși Bing. [@cite: https://www.microsoft.com/en-us/research/project/microsoft-academic-graph, https://docs.microsoft.com/en-us/azure/cognitive-services/academic-knowledge/home ] La momentul actual, baza de date are o dimensiune de *388 GB*, ceea ce o face să conțină o cantitate îndeajuns de mare de informație pentru a fi relevantă statistic. Acest factor, împreună cu prezența informațiilor despre citările fiecărui articol, fac din Microsoft Academic Graph o alegere potrivită pentru scopul nostru, extragerea rețelelor personale de coutori.
+
+[????????? @question: Să adaug diagrama de mai jos sau credeți că este prea detaliată și aglomerată ????????? ]
+[@image: Diagrama cu schema MAG-ului : https://docs.microsoft.com/en-us/azure/cognitive-services/academic-knowledge/images/academicgraphschema.png ]
+
+Pentru a prelua datele din MAG, am avut la dispoziție două opțiuni: să folosim API-ul Microsoft Academic Knowledege sau să importăm întreaga baza de date în Azure Data Lake Store. 
+API-ul constă în patru puncte de acces de tip REST pentru preluarea informației din MAG: *interpret*, *evaluate*, *calcHistogram* și *graph search*. Metoda *evaluate* este principala folosită, împreună cu o sintaxă specială, pentru a interoga graful, iar celelalte trei sunt folosite fie pentru a ușura sau rafina căutarea (*interpret*, respectiv *graph traversal*), fie pentru a oferi date statistice despre atributele entităților din graf(*calcHistogram*). [@plus: pot detalia despre cum funcționează celelalte metode ale API-ului][@cite : https://docs.microsoft.com/en-us/azure/cognitive-services/academic-knowledge/home ]
+
+Existența acestor metode predefinite și accesibilitatea API-ului ne-au făcut să optăm pentru această modalitate de a accesa datele din MAG, însă la începutul proiectului am descoperit câteva dezavantaje majore ale acestei abordări. 
+Pentru a înțelege și experimenta modul de funcționare al API-ului, am folosit *Postman*, un program folosit pentru a crea și a testa cereri HTTP. În urma acestor experimente, am observat că metoda *evaluate* putea întoarce cel mult 1000 de entități odată, ceea ce creea nevoia de multe cereri HTTP pentru a extrage cantitatea mare de date.[@plus: pot detalia folosirea API-ului explicând faptul că încercam un request de 3 ori până să-l consider "erorare" și să explic atributul offset al metodei *evaluate*] În plus, cererile HTTP eșuau spontan și repetat când foloseam metoda pentru a extrage mai mult de un milion de entități în total. Aceste fapte ar fi dus la o complexitate mărită a nivelului de tratare al erorilor aplicației, la un timp îndelungat de extragere a datelor cauzat de numărul mare de cereri necesare pentru a obtine toate datele și la eventuale întârzieri neașteptate din cauza erorilor API-ului. În al doilea rând, am ajuns la concluzia că, folosind metoda *evaluate* putem obține date doar despre două milioane de publicații ștințifice. În același timp, Microsoft Academic, deci și baza de date MAG peste care este construit, oferă informații despre peste 175 de milioane de publicații, la momentul actual.[@cite: https://academic.microsoft.com ]. 
+
+Datorită acestor inconveniențe, am decis să folosim Azure Data Lake Store, denumit în continuare **ADLS**, pentru a obține datele din MAG. Deși setările necesare pentru a importa baza de date în ADLS au durat mai mult și a fost necesar să primim aprobarea echipei Microsoft, rezultatele au fost cu mult mai satisfăcătoare față de folosirea API-ului. 
+
+## MAG în Azure Data Lake Store
+
+ADLS este un serviciu de stocare în cloud, oferit de către Microsoft Azure. Serviciul asigură durabilitatea și siguranța datelor stocate prin copierea acestora. Redundanța astfel creată face posibilă recuperarea datelor în cazul erorilor neașteptate. De asemenea, serviciul poate stoca fișiere de orice mărime și de orice tip, de la câțiva kilobytes la petabytes. ADLS este conceput și optimizat pentru a expune date spre procesare și analiză, exact scopul proiectului nostru. De asemenea, sistemul de fișiere pe care îl folosește, *ADL*, este un sistem distribuit perfect compatibil cu Hadoop Distributed File System, acesta fiind compatibil la rândul lui cu Spark, framework-ul pe care îl folosim la procesarea distribuită necesară proiectului nostru. [@cite: https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview ]
+
+Pentru a ne putea conecta la ADLS, trebuie să folosim sistemul de autentificare Azure Active Directory, sau **Azure AD**. Pentru acest sistem de autentificare avem două opțiuni: autentificare de tip *end-user*, sau *service-to-service*. Am ales să folosim a doua variantă dat fiind faptul că este metoda preferată de Microsoft pentru a încărca datele în ADLS, dar și pentru că este varianta care permite accesul automatizat la ADLS, fapt convenabil pentru aplicația noastră Spark pe care o vom descrie în capitolele următoare.
+Autentificarea service-to-service are ca rezultat faptul că operațiile de citire și scriere în ADLS vor fi intermediate de o aplicație Active Directory Web, numită în continuare **ADW**, care primește drepturile necesare de operație asupra sistemului de fișiere. ADW este disponibilă în cloud și, după adăugarea drepturilor de acces necesare, alte aplicații se pot conecta la ea cu următoarele credențiale: id-ul și cheia secretă a ADW, cât și id-ul contului Azure care găzduiește ADW. După cum spuneam mai sus, echipa Microsoft folosește aceste credențiale pentru a se conecta la aplicația noastră ADW și a încărca, săptămânal, o copie actualizată a MAG-ului în serviciul nostru de stocare. [@cite: https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory#step-1-create-an-active-directory-web-application, https://microsoftdocs.github.io/MAG/Getting-MAG-On-ADLS ]
+
+Acum, că avem baza de date MAG disponibilă în totalitate în ADLS, vom prezenta tehnicile folosite pentru a obține rețelele personale din această bază de date.
+
+## Obținerea rețelelor statice
 
 
----
 
-<p>Research</p>
-<ul>
-<li>
-<p>Graph Convolutional Networks : <a href="https://tkipf.github.io/graph-convolutional-networks/">https://tkipf.github.io/graph-convolutional-networks/</a></p>
-</li>
-<li>
-<p>TensorFlow ( ML Library ) - distribution based on graphs, each graph node is a computation on a certain machine</p>
-</li>
-<li>
-<p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
-</li>
-<li>
-<p>Microsoft Academic Graph API : api to get the academic data from Microsoft</p>
-</li>
-</ul>
-<p>(10, 000 transactions free per month, only available in West US) ( ~ 300 GB )</p>
-<p><a href="https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/">https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/</a></p>
-<ul>
-<li>Harvard Data Science Course : <a href="https://www.youtube.com/playlist?list=PLb4G5axmLqiuneCqlJD2bYFkBwHuOzKus">https://www.youtube.com/playlist?list=PLb4G5axmLqiuneCqlJD2bYFkBwHuOzKus</a></li>
-</ul>
-<p>Academic Search Engines :</p>
-<ul>
-<li>
-<p>Google Scholar : search scholarly articles; indexing is based on value and citation</p>
-</li>
-<li>
-<p>Microsoft Academic : <a href="https://academic.microsoft.com">https://academic.microsoft.com</a></p>
-</li>
-</ul>
-<p>Large Datasets :</p>
-<ul>
-<li>
-<p><a href="https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public">https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public</a></p>
-</li>
-<li>
-<p><a href="https://github.com/caesar0301/awesome-public-datasets">https://github.com/caesar0301/awesome-public-datasets</a></p>
-</li>
-</ul>
-<p>Answers :</p>
-<ul>
-<li>
-<p>Azure4Research : primim resursele pentru un an</p>
-</li>
-<li>
-<p>Propunere de max. 1000 de cuvinte / 3 pagini</p>
-</li>
-<li>
-<p>Cererile tehnice (cate core-uri, spațiu, etc.)</p>
-</li>
-<li>
-<p>Contact : <a href="mailto:azurerfp@microsoft.com">azurerfp@microsoft.com</a>.</p>
-</li>
-<li>
-<p>Primim și datele / acces la api prin acest grant ?</p>
-</li>
-<li>
-<p>Azure Free Trial :</p>
-</li>
-<li>
-<p>170 dollars to spend on their services for a month</p>
-</li>
-<li>
-<p>One year access to some services ( MAG api possibly included ? )</p>
-</li>
-<li>
-<p>Apache Spark on windows ; Dependencies : Scala, Hadoop winutils ; installation link here</p>
-</li>
-</ul>
-<p><a href="https://hernandezpaul.wordpress.com/2016/01/24/apache-spark-installation-on-windows-10/">https://hernandezpaul.wordpress.com/2016/01/24/apache-spark-installation-on-windows-10/</a></p>
-<ul>
-<li>
-<p>Open Academic Graph : open-source vesion of Microsoft’s <a href="https://www.openacademic.ai/oag/">https://www.openacademic.ai/oag/</a></p>
-</li>
-<li>
-<p>Azure 4 Research : rent Azure cloud computing for research <a href="https://azure4research.azurewebsites.net/proposal/">https://azure4research.azurewebsites.net/proposal/</a> (#academicgraph in the submission title, Data Science at the beginning of the title), 2015</p>
-</li>
-</ul>
-<ol>
-<li>
-<p>Familiarizarea cu schemele json pentru bazele de date existente. Asta va folosi indiferent de modul ales de continuare.</p>
-</li>
-<li>
-<p>schițarea unui proiect care ar putea folosi baza de date și estimarea (măcar grosieră) a resurselor hardware necesare.</p>
-</li>
-<li>
-<p>Investigarea posibilității folosirii MAG pe platforma azure. Avantaje/dezavantaje. Familiarizarea cu api-ul lor, dar mai ales elaborarea unui draft al proiectului de la 2 pe care să îl trimitem la Microsoft.</p>
-</li>
-<li>
-<p>Investigarea posibilității folosirii bazei de date open. Avantaje/dezavantaje. Căutarea unui limbaj/unei platforme de procesare potrivită.</p>
-</li>
-</ol>
-<p>Analiza Big Data</p>
-<p>Spark</p>
-<p>What is it ? : <a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
-<p>Framework de procesare Big Data, open-source</p>
-<p>Ruleaza peste infrastructura de date HDFS a Hadoop. Poate fi instalat atât într-un cluster YARN, cât și în versiune standalone ( să ruleze singur ?)</p>
-<p>Suportă operații pe o varietate de tipuri de date(text, grafuri) și surse de date (batch, stream)</p>
-<p>Suportă interogări SQL și operații complexe precum învățare automată și calcule pe grafuri</p>
-<p>Spark folosește Grafuri Orientate Aciclice pentru procesarea datelor. Spre deosebire de Hadoop MapReduce, unde o serie de job-uri MapReduce trebuiau să se aștepte una pe alta, în spark job-urile pot lucra cu aceleași date din memorie.</p>
-<p>Spark calculeaza procesările mai întâi în memoria internă, iar când aceasta e plină, scrie pe disk. Păstrarea rezultatelor în memoria internă ajută în cazul în care se lucrează cu același set de date de mai multe ori.</p>
-<p>Spark folosește de asemenea tehnici de “lazy evaluation” pentru a optimiza evaluărea interogărilor de big data</p>
-<p>Ofera API-uri in Scala, Python, R</p>
-<p>Spark MLib, Spark GraphX</p>
-<p>Arhitectura Spark :</p>
-<p>Orice aplicație Spark conține un program driver care rulează funcția main() a utilizatorului și apoi execută operații în paralel pe cluster.</p>
-<p>Spark este format din 3 componente, partea de date, parte de procesare API și partea de management. Prima parte se ocupa cu sistemul de stocare al datelor, a doua cu operațiile și procesările care au loc asupra datelor și a treia cu managementul resurselor peste un cluster / standalone.</p>
-<p><img src="https://lh3.googleusercontent.com/kVaS5mEDHPqH8W95Ku6SDxBI6BfV5m_xY8Yhqt8HhtByof8YMG2qFRGk88tiWcbYGnJLKcqyb74qrL8rkQVNIyxg11kuFvcwPxtOhHr6tvQ6hyjYDOS_MxlX9WfxbONt9-hjBKZR" alt=""></p>
-<p>RDD-urile sunt o primă abstractizare a Spark (Resilient Distributed Datasets). Un RDD este o colecție de elemente distribuite între nodurile sistemului, pe care se pot executa operații în paralel.</p>
-<p>RDD-urile sunt create prin o transformare aplicată unui fișier din sistem sau unei colecții Scala din programul conducător.</p>
-<p>RDD-urile sunt imutabile : o transformare asupra unui RDD întoarce un RDD nou, nu îl modifică pe cel anterior</p>
-<p>RDD-urile suportă 2 tipuri de operații :</p>
-<ul>
-<li>
-<p>Transformări :</p>
-</li>
-<li>
-<p>Nu sunt calculate evaluări, este doar întors un nou RDD</p>
-</li>
-<li>
-<p>map, filter, flatMap, groupByKey, reduceByKey, aggregateByKey, pipe, coalesce</p>
-</li>
-<li>
-<p>Acțiuni :</p>
-</li>
-<li>
-<p>Sunt calculate toate interogările de date din RDD și este întoarsă o valoare</p>
-</li>
-<li>
-<p>reduce, collect, count, first, take, countByKey, foreach.</p>
-</li>
-</ul>
-<p>Variabile partajate :</p>
-<p>By default, when Spark runs a function in parallel as a set of tasks on different nodes, it ships a copy of each variable used in the function to each task.</p>
-<p>O funcție rulată în paralel este văzuta ca o mulțime de task-uri pe mai multe noduri. În mod implicit, Spark transmite câte o copie a fiecărei variabile din funcție către fiecare task. Uneori, o variabila trebuie partajată între task-uri sau între un task și programul conducător. Astfel apar variabilele partajate (shared variables).</p>
-<p>Exista 2 feluri de variabile partajate. Acestea se pot folosi pentru a partaja informații între nodurile aplicației.</p>
-<ul>
-<li>
-<p>Variabile Broadcast : se menține variabila în cache-ul fiecărei mașini. Variabila este read-only. Aceasta nu se trimite prin copii odată cu fiecare task. Acest caz de variabilă se poate folosi în situația în care vrem să partajăm un data set mare între mai multe noduri.</p>
-</li>
-<li>
-<p>Variabile Acumulatori : În acumulatori se pot adăuga valori de către fiecare nod (mașină) în paralel. Valoarea unui acumulator nu poate fi citită decât de nodul care a inițiat procesarea paralelizată. Pot fi folosiți, de exemplu, în aplicații de numărare sau însumare.</p>
-</li>
-</ul>
-<p>Calculating resources requirements :</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/37871194/how-to-tune-spark-executor-number-cores-and-executor-memory">https://stackoverflow.com/questions/37871194/how-to-tune-spark-executor-number-cores-and-executor-memory</a></li>
-</ul>
-<p>Why Spark ?</p>
-<ul>
-<li>
-<p>Apache Spark new World Record <a href="https://opensource.com/business/15/1/apache-spark-new-world-record">https://opensource.com/business/15/1/apache-spark-new-world-record</a></p>
-</li>
-<li>
-<p>Spark RDD advantages over Hadoop <a href="https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed">https://www.quora.com/What-are-resilient-distributed-datasets-RDDs-How-do-they-help-Spark-with-its-awesome-speed</a></p>
-</li>
-</ul>
-<p>Future of Spark :</p>
-<ul>
-<li>Spark future with Databrick Inc. <a href="https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf">https://people.csail.mit.edu/matei/papers/2015/vldb_spark.pdf</a></li>
-</ul>
-<p>Sources :</p>
-<ul>
-<li>
-<p><a href="https://www.infoq.com/articles/apache-spark-introduction">https://www.infoq.com/articles/apache-spark-introduction</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview">https://spark.apache.org/docs/latest/rdd-programming-guide.html#overview</a></p>
-</li>
-</ul>
-<p>Next :</p>
-<ul>
-<li>
-<p>Spark basics :</p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html">https://spark.apache.org/docs/latest/rdd-programming-guide.html</a></p>
-</li>
-<li>
-<p>Cluster setup :</p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/cluster-overview.html">https://spark.apache.org/docs/latest/cluster-overview.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/submitting-applications.html">https://spark.apache.org/docs/latest/submitting-applications.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/spark-standalone.html">https://spark.apache.org/docs/latest/spark-standalone.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/configuration.html">https://spark.apache.org/docs/latest/configuration.html</a></p>
-</li>
-<li>
-<p><a href="https://spark.apache.org/docs/latest/tuning.html">https://spark.apache.org/docs/latest/tuning.html</a></p>
-</li>
-</ul>
-<p>Microsoft Azure for Research</p>
-<p>Documentation : <a href="https://docs.microsoft.com/en-us/azure/">https://docs.microsoft.com/en-us/azure/</a></p>
-<p>Arhitecture : <a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></p>
-<p>Research Program : <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx">https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fprojects%2Fazure%2Fawards.aspx</a></p>
-<p>Cloud-ul permite o nouă abordare asupra arhitecturilor aplicațiilor moderne.</p>
-<p><img src="https://lh6.googleusercontent.com/ee1kvHgV-ws9UqTSo9b8KrdCyLJ8ZVmQkw0GHwJy-eT1X-zViqS2LEuXFfmuQEYPFJZ7zyxr-PiTCJ9IOKpUdAZVzGVPGWnrzZnhbl1Jm4cPfY-hQL3ZbE9Eu6nU92w7PGYtLS3o" alt="fmm.PNG"></p>
-<p><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/">https://docs.microsoft.com/en-us/azure/architecture/guide/</a></p>
-<p>Arhitectura cloud :</p>
-<ul>
-<li>Big Data <a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data</a></li>
-</ul>
-<p><img src="https://lh4.googleusercontent.com/qYo0YsfG86FmwGHxldncI_kw_ZHZmpounFYzpKWwonIJVsfmannZUyXxtuIBeJF78M032UH7PEggnUNt7Ub28y_yo1DHpxuksf_Uc8BKq98PwW9tuT5yIVF67VzgxJiSjDOVgdvx" alt="fmm.PNG"></p>
-<p>Orice aplicație de tip Big Data începe prin a avea o componentă de sursă de date. Sursele pot fi multiple și diverse, dar în cazul nostru datele sunt omogene și structurate.</p>
-<p>După preluarea datelor din sursele necesare, acestea sunt  de obicei stocate într-un sistem distribuit, care poate susține cantități mari de date, în diverse formate. Pentru această componentă am putea folosi Azure Data Lake sau containere blob din Azure Storage.</p>
-<p>Procesarea datelor presupune, în majoritatea cazurilor, citirea diverselor date și stocarea lor în alte fișiere, pregătindu-le astfel pentru analiza. Pentru partea de procesare putem folosi serviciile Spark / Hadoop din cluster-ul HDInsight.</p>
-<p>După procesare, datele sunt acum structurate și permit preluarea acestora pentru analiza. Diverse programe de analiză sunt Azure SQL Data Warehouse și SQL Spark din HDInsight.</p>
-<p>Scopul final al aplicațiilor de Big Data este de obicei obținerea de corelații sau fapte din mulțimea mare de date procesată. Pentru analiza datelor, se poate folosi un serviciu precum Azure Analysis Services, un notebook de analiză Jupyter. Pentru analiza datelor la scară largă, se poate folosi Microsoft R Server sau Spark standalone.</p>
-<p>Ultima dar nu cea din urmă, orchestrarea aplicației este printre cele mai importante componente. Ea creează fluxurile între componentele aplicației și permite parcursul datelor de la surse către rapoartele analitice. Aceste procese pot fi făcute automat cu ajutorul Apache Data Factory sau Apache Oozie sau Sqoop.</p>
-<p>Principii de programare :</p>
-<ul>
-<li>
-<p>Paralelizarea procesării datelor și posibilitatea de a separa datele într-un sistem distribuit precum HDFS</p>
-</li>
-<li>
-<p>Partitionarea datelor, pe principii precum timpul la care se vor procesa datele</p>
-</li>
-<li>
-<p>Semantici schema-on-read</p>
-</li>
-<li>
-<p>Transformă datele, și apoi extrage și încarcă</p>
-</li>
-<li>
-<p>Uneori, se preferă timpuri mai lungi de procesare față de costul mai mare al sub-utilizării unui cluster. De exemplu, un proces poate dura 8 ore rulând pe patru noduri, dar le folosește pe primele două doar 2 ore. Astfel, dacă ar rula doar pe 2 noduri, ar rula mai încet, dar nu dublu ca timp. Deci în cazul de față, costul nu merită timpul de execuție.</p>
-</li>
-<li>
-<p>Separarea resurselor de cluset. De exemplu, este posibil ca o aplicație ce folosește și Spark și Hive să meargă mai repede dacă cele 2 sunt folosite în clustere separate.</p>
-</li>
-<li>
-<p>Datele personale sau securizate ar trebui prelucrate înainte să ajungă în Data Lake.</p>
-</li>
-</ul>
-<p>Azure oferă servicii de IaaS, PaaS și FaaS.</p>
-<p>IaaS (Infrastructure as a Service) oferă cele mai multe opțiuni de configurare. Serviciul acesta constă în valabilitatea unor mașini virtuale, pe care utilizatorii sunt liberi să și le configureze și să-și instaleze aplicațiile pe acestea.</p>
-<p>PaaS (Platform) oferă un mediu de hosting manage-uit, în care utilizatorii doar specifică resursele de care au nevoie.</p>
-<p>FaaS (Function)ia și mai multă responsabilitate de pe umerii utlizatorilor. Aceștia doar își trimit codul, iar serviciul alocă automat resursele de care codul are nevoie pentru a rula eficient.</p>
-<p>Choosing compute options :</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison">https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison</a></li>
-</ul>
-<p>Microsoft Academic Graph :</p>
-<ul>
-<li><a href="https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/">https://azure.microsoft.com/en-us/services/cognitive-services/academic-knowledge/</a></li>
-</ul>
-<p>Machine learning with spark in the cloud :</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark">https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-mmlspark</a></li>
-</ul>
-<p>Next :</p>
-<ul>
-<li>
-<p>What technology compute to choose ?</p>
-</li>
-<li>
-<p>What are the requirements for an Azure proposal ? (how much space, number of cores, hours of computation )</p>
-</li>
-</ul>
-<p>Need 150 GB - 300 GB - 500 GB.</p>
-<p>Hours of computation : 231 *</p>
-<dl>
-<dt>Citation needed : “Cloud computing resources were provided by a <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Microsoft Azure for Research</a> award”</dt>
-<dd>citation available here <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">https://www.microsoft.com/en-us/resea7  rch/project/microsoft-academic-graph/</a></dd>
-</dl>
-<p>Services Example :</p>
-<ul>
-<li>Data Science VM : <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm">https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm</a></li>
-</ul>
-<p>Processing Json Data with Spark SQL :</p>
-<ul>
-<li><a href="http://blog.antlypls.com/blog/2016/01/30/processing-json-data-with-sparksql/">http://blog.antlypls.com/blog/2016/01/30/processing-json-data-with-sparksql/</a></li>
-</ul>
-<p>Gettings started with Azure HDinsight :</p>
-<ul>
-<li>
-<p>Introduction to Spark on HdInsight : <a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview">https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview</a></p>
-</li>
-<li>
-<p>Deploy HDInsight</p>
-</li>
-</ul>
-<p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql">https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql</a></p>
-<ul>
-<li>HDInsight with Blob Storage</li>
-</ul>
-<p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage">https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage</a></p>
-<ul>
-<li>
-<p>HDInsight with Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal">https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal</a></p>
-</li>
-<li>
-<p>Run Interactive Queries : <a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-load-data-run-query">https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-load-data-run-query</a></p>
-</li>
-<li>
-<p>Delete HdInsight cluster <a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-delete-cluster">https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-delete-cluster</a></p>
-</li>
-</ul>
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MzI3NDA3OF19
--->
+
+
