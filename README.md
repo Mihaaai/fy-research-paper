@@ -9,4 +9,4 @@ My application analyzes the way co-authorship networks are formed in different r
 If things get succesful enough, a research paper showing the result of my data processing might make it to publication. This time, in English. 
 
 You can find the repo for the spark application documented in this paper right at this link:
-https://github.com/Mihaaai/
+https://github.com/Mihaaai/mag-spark-nets
